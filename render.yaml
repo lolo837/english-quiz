@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: english-quiz
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    plan: free
+    envVars:
+      - key: EXAM_CODE
+        value: ENG2027X
+      - key: ADMIN_NAME
+        value: Noor
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: FLASK_SECRET_KEY
+        generateValue: true
